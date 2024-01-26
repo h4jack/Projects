@@ -32,6 +32,30 @@ int opPref(char c){
     }
 }
 
+double findMod(double a, double b)
+{
+    double mod;
+    // Handling negative values
+    if (a < 0)
+        mod = -a;
+    else
+        mod =  a;
+    if (b < 0)
+        b = -b;
+ 
+    // Finding mod by repeated subtraction
+     
+    while (mod >= b)
+        mod = mod - b;
+ 
+    // Sign of result typically depends
+    // on sign of a.
+    if (a < 0)
+        return -mod;
+ 
+    return mod;
+}
+
 double calculate(double num1, char op, double num2){
     switch(op){
         case '+':
@@ -47,12 +71,7 @@ double calculate(double num1, char op, double num2){
             }
             return num1 / num2;
         case '%':
-            printf("modulo(%%) function is not available.\n");
-            exit(0);
-            // while(num1 >= num2){
-            //     num1 -= num2;
-            // }
-            // return num1;
+            return fmod(num1,num2);
         case '^':
             return pow(num1,num2);
         default:

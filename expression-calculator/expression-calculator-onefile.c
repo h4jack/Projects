@@ -269,12 +269,7 @@ double calculate(double num1, char op, double num2){
         case '/':
             return num1 / num2;
         case '%':
-            printf("modulo(%%) function is not available.\n");
-            exit(0);
-            // while(num1 >= num2){
-            //     num1 -= num2;
-            // }
-            // return num1;
+            return fmod(num1,num2);
         case '^':
             return pow(num1,num2);
         default:
