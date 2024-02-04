@@ -1,36 +1,49 @@
 //in this js program i will convert infix expression to postfix then i will evoluate it.
-
-const errortext = document.getElementById("error");
 const expin = document.getElementById("expin");
 const result = document.getElementById("result");
+
 const user_input = document.getElementById("user-input");
+user_input.addEventListener('keypress', enterPressed);
+
 const history = document.getElementById("last-command");
+let historyarr = ["This Array Stores History User Inputs."];
+
+const helpobj = document.getElementById("help");
+const helpmsg = `      This is a Calculator Web Application with some basic operation like +,-,*,/,%,^. <br>
+you can add '(' and ')' in the input field below history. <br>
+if you found any bug or result error you can <a href="mailto:susantamandi.user@gmail.com">Email Us.</a>
+`;
 
 let calvalue = 0;
 let count = 0;
 
-function submit(c = false) {
+let help = false;
+
+function submit() {
     if(user_input.value == ""){
-        showError("Can's Calculate No Input");
+        showhelp("Can't Calculate No Input");
         return;
     }
-    history.style.visibility = "visible";
-    count = count + 1;
-    history.innerHTML = count + ":</br>" + "    User: " + user_input.value + "</br>" + "    JAGU: " + calvalue + "</br>" + history.innerHTML;
-    if(c == true){
-        user_input.value = calvalue;
-        inputChanged();
+    if(user_input.value != "" && user_input.value != historyarr[count]){
+        history.style.visibility = "visible";
+        count = count + 1;
+        historyarr[count] = user_input.value;
+        history.innerHTML = "<p onclick=\"clickHistory('" + user_input.value + "')\">" + count + ":</br>" + "    User: " + user_input.value + "</br>" + "    JAGU: " + calvalue + "</p>" + history.innerHTML;
     }
 }
 
 function inputChanged() {
-    errortext.style.visibility = "hidden";
+    // user_input = user_input.replaceAll(/ /g,"");
+    helpobj.style.visibility = "hidden";
     expin.value = user_input.value;
     expin.scrollLeft = expin.scrollWidth; // scroll to the right
     calvalue = evaluatePostfix(infixToPostfix(charToList(user_input.value)));
     result.value = calvalue;
     result.scrollLeft = result.scrollWidth; // scroll to the right
-
+    if(user_input.value == ""){
+        result.value = "";
+        expin.value = ""
+    }
 }
 
 function appendChar(c) {
@@ -41,8 +54,8 @@ function appendChar(c) {
 function clearInput(c) {
     if (c == "AC") {
         user_input.value = "";
-        result.value = 0;
-        expin.value = 0;
+        result.value = "";
+        expin.value = "";
     } else {
         let str = user_input.value;
         str = str.substring(0, str.length - 1);
@@ -55,11 +68,32 @@ function clearInput(c) {
     }
 }
 
-function showError(er, x = false) {
-    errortext.style.visibility = "visible";
-    errortext.innerHTML = "<p  style=\"color: red;\">" + er + "</p>";
-    if (x == true) {
-        alert(x);
+function showhelp(c){
+    if(c == 1){
+        helpobj.innerHTML = helpmsg;
+        if(help == false){
+            help = true;
+            helpobj.style.visibility = "visible";
+        }else{
+            help = false;
+            helpobj.style.visibility = "hidden";
+        }
+    }else{
+        helpobj.style.visibility = "visible";
+        helpobj.innerHTML = "<p  style=\"color: red;\">" + c + "</p>";
+    }
+}
+
+function clickHistory(c){
+    user_input.value = c;
+    inputChanged();
+}
+
+function enterPressed(event) {
+    // Check if the key is 'Enter'
+    if (event.key === 'Enter') {
+      // Do something
+      submit();
     }
 }
 
@@ -78,7 +112,7 @@ function doOperation(x, c, y) {
         case '^':
             return Math.pow(x, y);
         default:
-            showError("Wrong Operation Symbol Ocured");
+            showhelp("Wrong Operation Symbol Ocured");
     }
 }
 
@@ -112,7 +146,7 @@ function opPref(c) {
         case ')':
             return 0;
         default:
-            showError("Wrong Operator Encountered.");
+            showhelp("Wrong Operator Encountered.");
     }
 }
 
@@ -141,7 +175,7 @@ function charToList(st) {
                 infixList.push(c);
             }
         } else {
-            showError("Wrong Character Encountered.");
+            showhelp("Wrong Character Encountered.");
             return null;
         }
         prev = c;
@@ -208,3 +242,4 @@ function evaluatePostfix(postfix) {
     }
     return stack[stack.length - 1];
 }
+

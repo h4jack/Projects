@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALCULATOR</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="heading">
+    <h1 onclick="showhelp(1)" style="height: auto; width: auto;">CALCULATOR</h1>
+    <p id="help" style="color: rgb(106, 216, 174); visibility: hidden;"></p>
+  </div>
   <div class="body">
     <div class="calculator">
-      <p class="error" id="error"></p>
-      <input type="text" id="expin" class="expin" value="0" readonly />
-      <input type="text" id="result" class="result" value="0" readonly />
+      <input type="text" id="expin" class="expin" title="expin" value="" placeholder="0000" readonly />
+      <input type="text" id="result" class="result" value="" title="expin" placeholder="0000" readonly />
       <div class="buttons">
         <button onclick="clearInput('AC')">AC</button>
         <button onclick="clearInput('C')">C</button>
         <button onclick="appendChar('^')">^</button>
-        <button onclick="submit(true)">=</button>
+        <button onclick="submit()">=</button>
         <button onclick="appendChar('1')">1</button>
         <button onclick="appendChar('2')">2</button>
         <button onclick="appendChar('3')">3</button>
@@ -42,11 +46,10 @@
         <pre id="last-command"></pre>
       </div>
       <div class="cli-input">
-        <center>
+          <p>Enter expression using your keyboard</p>
           <input type="text" oninput="inputChanged()" id="user-input" placeholder="Enter infix expression" />
           </br>
-          <button id="submit-button" onclick="submit()">Submit</button>
-        </center>
+          <!-- <button id="submit-button" onclick="submit()">Submit</button> -->
       </div>
     </div>
   </div>
