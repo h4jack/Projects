@@ -1,0 +1,32 @@
+
+template <class F,class S>
+int bsearch(F arr, S k, int n) {
+    // code here
+    int h = n-1;
+    int l = 0;
+    while(l <= h){
+        n = l + (h - l) / 2;
+        if(arr[n] == k){
+            return n;
+        }
+        if(arr[n] < k){
+            l = n+1;
+        }else{
+            h = n-1;
+        }
+    }
+    return -1;
+}
+
+template <class M,class T>
+int lsearch(M a,T k, int len) {
+    // code here
+    int i = 0;
+    while(i < len){
+        if(a[i] == k){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}

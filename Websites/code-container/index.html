@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="index.js" type="text/javascript" defer></script>
+</head>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+      }
+      
+      .input-container {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      
+      label {
+        width: 200px;
+      }
+      
+      input {
+        flex: 1;
+      }
+      
+      button {
+        margin-top: 10px;
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      li {
+        margin-bottom: 5px;
+      }
+  </style>
+  <body>
+      <div class="input-container">
+          <label for="language">Programming Language:</label>
+          <input type="text" id="language" name="language" />
+        </div>
+    <div class="input-container">
+      <label for="line-number">Line Number:</label>
+      <input type="number" id="line-number" name="line-number" />
+    </div>
+    <button id="add-language">Add Language</button>
+    <ul id="language-list"></ul>
+    <script>
+        document.getElementById('add-language').addEventListener('click', function () {
+  const language = document.getElementById('language').value;
+  const lineNumber = document.getElementById('line-number').value;
+
+  if (language && lineNumber) {
+    const listItem = document.createElement('li');
+    listItem.textContent = `Language: ${language}, Line Number: ${lineNumber}`;
+    document.getElementById('language-list').appendChild(listItem);
+  }
+});
+    </script>
+</body>
+</html>

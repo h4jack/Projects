@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Example</title>
+  <style>
+    *{
+      text-align: center;
+      color: aliceblue;
+    }
+    body{
+      margin: 0px;
+      padding: 0px;
+    }
+    .menu{
+      margin: 0px;
+      height: 40px;
+      width: 100%;
+      position: fixed;
+      top: 0px;
+      background-color: #303030 ;
+    }
+    #heading{
+      margin: auto;
+      line-height: 40px;
+      padding-left: 10px;
+      float: left;
+    }
+    .mbtn{
+      rotate: 90deg;
+      float: right;
+      font-size: 30px;
+      padding-right: 10px;
+      background-color: transparent;
+      border-color: transparent;
+    }
+    .menu-h{
+      right: 0px;
+      top: 40px;
+      position: fixed;
+      margin: 0px;
+      padding: 10px;
+      height: auto;
+      width: auto;
+      visibility: hidden;
+      background-color: #303030;
+    }
+    .box{
+      height: 100px;
+      width: 500px;
+      background-color: navy;
+      margin: 10px;
+      margin-top: 10px;
+    }
+    .main{
+      margin: auto;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body onload="bodyOnload()">
+  <nav class="menu">
+    <h1 id="heading"></h1>
+    <button class="mbtn" onclick="menuBtn()">|||</button>
+  </nav>
+  <div id="menubox" class="menu-h">    
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+    <div class="options">Hello How Are You</div>
+  </div>
+  <div class="main">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  
+  
+  <script>
+    const heading = document.getElementById('heading');
+    function bodyOnload(){
+      heading.innerHTML = document.title;
+    }
+    function menuBtn() {
+      const x = document.getElementById('menubox');
+      if (x.style.visibility == 'visible') {
+        x.style.visibility = 'hidden';
+      } else {
+        x.style.visibility = 'visible';
+      }
+    }
+  </script>
+</body>
+</html>

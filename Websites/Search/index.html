@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style type="text/css">
+
+    </Style>
+</head>
+<body>
+    <div class="main">
+        <center>
+            <br><br><br><br><br>
+                <p class="titletxt">SUSANTA</p>
+                <br><br><br><br><br>
+        </center>
+    <center>
+        <div class="searchdiv">
+                <input type="text" name="txtinput" placeholder="Search Something" id="txtinput" onkeypress="onEnterPress();" class="textinp">
+                <br>
+                <input onclick="search(1)" type="button" value="Bing" class="searchbtn">
+                <input onclick="search(2)" type="button" value="Google" class="searchbtn">
+                <input onclick="search(3)" type="button" value="DuckGo" class="searchbtn">
+                <input onclick="search(4)" type="button" value="Youtube" class="searchbtn">
+                <input onclick="search(5)" type="button" value="Ecosia" class="searchbtn">
+        </div>
+    </center>
+        <div class="pinapk">
+            
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script type="text/javascript">
+        var inputxt = document.getElementById("txtinput");
+
+        function search(i){
+            switch(i){
+                case 1: 
+                    loadByLink("https://www.bing.com/search?q=");
+                    break;
+                case 2:
+                    loadByLink("https://www.google.com/search?q=");
+                    break;
+                case 3: 
+                    loadByLink("https://duckduckgo.com/?q=")
+                    break;
+                case 4:
+                loadByLink("https://www.youtube.com/results?search_query=");
+                    break;
+                case 5: 
+                loadByLink("https://www.ecosia.org/search?q=");
+                    break;
+                default:
+                    codeError();
+            }
+            
+            
+        }
+        function loadByLink(link){
+            window.open(link + inputxt.value,"_blank");
+        }
+        function codeError(){
+            alert("There is an Error with the code please send us report in the report or contact section.")
+        }
+        function onEnterPress() {
+            var key = window.event.keyCode;
+            // If the user has pressed enter
+            if (key === 13) {
+                loadByLink("https://www.bing.com/search?q=");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        function onLoadBody(){
+            var key = window.event.keyCode;
+            // If the user has pressed enter
+            if (key === 13) {
+                loadByLink("https://www.bing.com/search?q=");
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
+    
+</body>
+</html>

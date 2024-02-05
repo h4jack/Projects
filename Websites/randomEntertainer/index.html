@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random EnterTainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Notice how we have used "semantic HTML" here -->
+<!-- Re-read the lesson if you don't understand what that means -->
+<!-- https://www.zachgollwitzer.com/posts/2021/fullstack-developer-series/7-html-crash-course-->
+<main>
+    <section class="content">
+      <!-- Your HTML code goes here -->
+      <h2>Output</h2>
+      <h3 class='heading'>None</h3>
+      <div class='meme'></div>
+      <div class='joke'></div>
+      <div class='quote'></div>
+      <div class='riddle'>
+        <p class="question"></p>
+        <p class="answer"></p>
+      </div>
+    </section>
+    
+    <!-- No need to change anything in this section -->
+    <section class="sidebar">
+      <h2>Actions</h2>
+      <button onclick="showMeme()">Show a Meme</button>
+      <button onclick="showJoke()">Tell Me a Joke</button>
+      <button onclick="showQuote()">Random Quote</button>
+      <button onclick="showRiddle()">Riddle me</button>
+      <button class="reveal-btn" style="display: none;" onclick="revealAnswers()">Reveal Riddle Answer</button>
+      <p class="attribution">Code challenge by <a href="https://www.twitter.com/zg_dev" target="_top">@zg_dev</a></p> 
+      <p class="attributionst">Code Completed by <a href="https://github.com/devSusanta/" target="_top">@devSusanta</a></p> 
+    </section>
+  </main>
+    <script src="index.js"></script>
+</body>
+</html>
