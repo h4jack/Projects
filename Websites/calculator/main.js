@@ -33,7 +33,7 @@ function submit() {
         showhelp("Can't Calculate No Input");
         return;
     }
-    if(user_input.value != "" && user_input.value != historyarr[count]){
+    if(user_input.value != "" && user_input.value != historyarr[count] && typeof(Number(result.value)) == 'number' && !(result.value == "NaN" || result.value == "undefined")){
         history.style.visibility = "visible";
         count = count + 1;
         historyarr[count] = user_input.value;

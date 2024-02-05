@@ -130,12 +130,12 @@ button:active {
 
 .cli-output::-webkit-scrollbar {
     display: none;
-    div.scroll-view {
+    /* div.scroll-view {
         direction: rtl;
         overflow-x: scroll;
         height: 100px;
         width: 300px;
-      }
+      } */
 }
 
 
