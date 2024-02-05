@@ -9,7 +9,7 @@ const history = document.getElementById("last-command");
 let historyarr = ["This Array Stores History User Inputs."];
 
 const helpobj = document.getElementById("help");
-const helpmsg = `      This is a Calculator Web Application with some basic operation like +,-,*,/,%,^. <br>
+const helpmsg = `This is a Calculator Web Application with some basic operation like +,-,*,/,%,^. <br>
 you can add '(' and ')' in the input field below history. <br>
 if you found any bug or result error you can <a href="mailto:susantamandi.user@gmail.com">Email Us.</a>
 `;
@@ -18,6 +18,15 @@ let calvalue = 0;
 let count = 0;
 
 let help = false;
+
+function outputToInput(){
+    if(typeof(Number(result.value)) == 'number' && !(result.value == "NaN" || result.value == "undefined")){
+        submit();
+        user_input.value = result.value;
+        result.value = "";
+        expin.value = user_input.value;
+    }
+}
 
 function submit() {
     if(user_input.value == ""){
@@ -56,14 +65,14 @@ function clearInput(c) {
         user_input.value = "";
         result.value = "";
         expin.value = "";
-    } else {
+    }else {
         let str = user_input.value;
         str = str.substring(0, str.length - 1);
         user_input.value = str;
         inputChanged();
         if (str == "") {
-            result.value = 0;
-            expin.value = 0;
+            result.value = "";
+            expin.value = "";
         }
     }
 }
@@ -242,4 +251,3 @@ function evaluatePostfix(postfix) {
     }
     return stack[stack.length - 1];
 }
-

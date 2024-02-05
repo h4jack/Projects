@@ -100,12 +100,6 @@ button:active {
     user-select: none; /* Standard syntax */
 }
 
-#last-command-output {
-    color: #777777;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
 #last-command {
     background-color: #333333;
     padding: 10px;
@@ -136,6 +130,12 @@ button:active {
 
 .cli-output::-webkit-scrollbar {
     display: none;
+    div.scroll-view {
+        direction: rtl;
+        overflow-x: scroll;
+        height: 100px;
+        width: 300px;
+      }
 }
 
 
