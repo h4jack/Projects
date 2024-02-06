@@ -33,7 +33,7 @@ function submit() {
         showhelp("Can't Calculate No Input");
         return;
     }
-    if(user_input.value != "" && user_input.value != historyarr[count] && typeof(Number(result.value)) == 'number' && !(result.value == "NaN" || result.value == "undefined")){
+    if(user_input.value != "" && result.value != "" && user_input.value != historyarr[count] && typeof(Number(result.value)) == 'number' && !(result.value == "NaN" || result.value == "undefined")){
         history.style.visibility = "visible";
         count = count + 1;
         historyarr[count] = user_input.value;
@@ -42,7 +42,7 @@ function submit() {
 }
 
 function inputChanged() {
-    user_input = user_input.replaceAll(/ /g,"");
+    user_input.value = user_input.value.replaceAll(/ /g,"");
     helpobj.style.visibility = "hidden";
     expin.value = user_input.value;
     expin.scrollLeft = expin.scrollWidth; // scroll to the right
