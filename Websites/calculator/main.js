@@ -42,7 +42,7 @@ function submit() {
 }
 
 function inputChanged() {
-    // user_input = user_input.replaceAll(/ /g,"");
+    user_input = user_input.replaceAll(/ /g,"");
     helpobj.style.visibility = "hidden";
     expin.value = user_input.value;
     expin.scrollLeft = expin.scrollWidth; // scroll to the right
