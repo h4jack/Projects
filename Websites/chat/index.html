@@ -10,8 +10,74 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js"></script>
 </head>
-
 <body onload="loadFun()">
+    <style>
+        .user-rkey-name {
+            margin: auto;
+            color: black;
+            background-color: rgba(3, 17, 13, 0.474);
+            height: auto;
+            width: 300px;
+            text-align: center;
+            border: 2px solid rgba(75, 56, 75, 0.407);
+            border-radius: 10px;
+            position: fixed;
+            top: 30%;
+            right: 40%;
+            visibility: hidden;
+        }
+
+        .input-rkey,
+        .input-name {
+            height: 30px;
+            width: 90%;
+            margin: 10px;
+            padding: 5px;
+            font-size: 20px;
+            background-color: transparent;
+            border: 3px solid #333333;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .input-name::placeholder,
+        .input-rkey::placeholder {
+            color: white;
+            text-shadow: #555555;
+            opacity: 70%;
+        }
+
+        .submit-login {
+            height: auto;
+            width: 30%;
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            background-color: #444444;
+            box-shadow: 0vmax;
+            text-align: center;
+            color: whitesmoke;
+            border: 2px solid grey;
+            border-radius: 5px;
+        }
+
+        .submit-login:hover {
+            background-color: #555555;
+            border-radius: 7px;
+        }
+
+        .submit-login:active {
+            background-color: #333333;
+            border-radius: 6px;
+        }
+    </style>
+    <div class="user-rkey-name" id="user-rkey-name">
+        <input type="text" value="" class="input-rkey" id="input-rkey" placeholder="Room Key">
+        <br>
+        <input type="text" value="" class="input-name" id="input-name" placeholder="Your Unofficial Name">
+        <br>
+        <button type="submit" class="submit-login" id="submit-login" onclick="submit_rkey_name()">Submit</button>
+    </div>
     <div class="body">
         <div id="chat-output" class="chat-output">
             <div class="message-container sender">
@@ -24,7 +90,7 @@
         <div class="chat-input">
             <textarea class="input-msg" id="input-msg" type="text" aria-valuetext="hello world"
                 placeholder="Enter Your Message."></textarea>
-            <button class="send-btn" onclick="send()">Enter</button>
+            <button class="send-btn" id="send-btn" onclick="send()">Enter</button>
         </div>
     </div>
     <script src="main.js"></script>
