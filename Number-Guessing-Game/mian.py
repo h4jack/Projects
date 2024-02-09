@@ -19,8 +19,6 @@ def main():
         main()
     print("Oops.. Game Terminated.")
 
-
-
 def inputError(c = ""):
     print("Wrong Input.\n",c);
 
