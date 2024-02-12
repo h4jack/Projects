@@ -8,12 +8,17 @@ op = 1
 
 
 def main():
-    print("who is going to guess.\n1. Me(Robot), \n2. You(User): ")
-    op = takeInput("Enter the number: ",1,2)
+    print("who is going to guess.\n1. Me(Robot),\n2. You(User),\n3. Robot(Auto),")
+    op = takeInput("Enter the number: ",1,3)
     if(op == 1):
         guessRobot()
     elif(op == 2):
         guessUser()
+    elif(op == 3):
+        guessRobotAuto()
+    elif(op == 0):
+        print("Oops.. Game Terminated.")
+        return;
     op = input("do you want to play again (y/n): ")
     if(op == 'y'):
         main()
@@ -27,6 +32,8 @@ def takeInput(str, min = -1, max = -1):
     while(t):
         try:
             a = int(input(str))
+            if(a == 0):
+                return 0
             if(min != max):
                 if(a >= min and a <= max):
                     t = False
@@ -42,6 +49,9 @@ def guessRobot():
     x = rint(1,4);
     rlim = (100**x)
     a = takeInput(f"now think of a number between 1 to {rlim}: ",1,rlim)
+    if(a == 0):
+        print("Exit from Robot Guessing Game.")
+        return
     guesstime = 0;
     rmin = 1
     rmax = rlim
@@ -64,7 +74,36 @@ def guessRobot():
     if(op == 'y'):
         guessRobot()
     print("exit from Robot Guessing game.")
-        
+
+def guessRobotAuto():
+    x = rint(1,4);
+    rlim = (100**x)
+    a = takeInput(f"now think of a number between 1 to {rlim}: ",1,rlim)
+    if(a == 0):
+        print("Exit from Robot Guessing Game.")
+        return
+    guesstime = 0;
+    rmin = 1
+    rmax = rlim
+    while(1):
+        guesstime += 1
+        num = rint(rmin,rmax)
+        print(f"I Guessed the Number {num}")
+        if(num == a):
+            print(f"the number is {a}. this guessing took me {guesstime} times")
+            break
+        elif(num < a):
+            print(f"The number is less then {num}")
+            rmin = num
+        elif(num > a):
+            print(f"The number is greater then {num}")
+            rmax = num
+    op = input("do you want to play again (y/n): ")
+    if(op == 'y'):
+        guessRobotAuto()
+    else:
+        print("exit from Robot Guessing game.")
+
 
 def guessUser():
     print("1:  (Easy)   1-100")
@@ -72,8 +111,10 @@ def guessUser():
     print("3:  (Midium) 1-1,000,000")
     print("4:  (Hard)   1-100,000,000")
     op = takeInput("Select Your Difficulty Level: ", 1, 4)
+    if(op == 0):
+        print("Exit from Guessing Game.")
+        return
     rlim = (100**op)
-
     guessnum = rint(1,rlim)
     guesstime = 0;
 
