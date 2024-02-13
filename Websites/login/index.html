@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SignIn</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-    <script>
-        window.open('Sign.html')
-    </script>
+
+<body onload="onLoad()">
+    <div class="main">
+        <div class="sign-box">
+            <div class="switch-mode"><button class="sign-switch sign-up-switch">Sign In</button><button
+                    class="sign-switch sign-in-switch">Sign Up</button></div>
+            <p id="log-msg" class="log-msg"></p>
+            <input autocomplete="username" placeholder="Username" class="inputfrom username" type="text" name="username"
+                id="username">
+            <input autocomplete="email" placeholder="Email" class="inputfrom email" type="email" name="email" id="email"
+                required>
+            <input autocomplete="off" placeholder="Password" class="inputfrom password" type="password" name="password"
+                id="password">
+            <p class="forget-pass">Forget Password?</p>
+            <br>
+            <button onclick="sign()" class="sign-btn">SignIn</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
+
 </html>
