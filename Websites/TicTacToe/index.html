@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="./style.css">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style type="text/css" media="all">
-    body {
-        /* background: #2b2b2b; */
-    }
-</style>
+
 <body>
-    <!-- partial:index.partial.html -->
-    <div id="app">
-        <transition v-on:enter="enter" v-bind:css="false" appear>
-            <div class="butter-cheese-eggs" v-show="true">
-                <div v-for="(block, index) in grid" @click="select(index)">
-                    <block :figure.sync="block.figure" />
-                </div>
+    <div class="body">
+        <div class="result" id="resultdiv">
+            <div class="score">
+                O:<p class="o" id="o">0</p>
             </div>
-        </transition>
-        <transition v-on:enter="enterWin" v-bind:css="false">
-            <win v-show="winner" :click-handler="restart"></win>
-        </transition>
+            <div class="score">
+                X:<p class="x" id="x">0</p>
+            </div>
+            <p class="winner" id="winner"></p>
+        </div>
+        <div class="gamebox">
+            <div class="row row1">
+                <div class="column column11" tabindex="0" id="cl1"></div>
+                <div class="column column12" tabindex="0" id="cl2"></div>
+                <div class="column column13" tabindex="0" id="cl3"></div>
+            </div>
+            <div class="row row2">
+                <div class="column column21" tabindex="0" id="cl4"></div>
+                <div class="column column22" tabindex="0" id="cl5"></div>
+                <div class="column column23" tabindex="0" id="cl6"></div>
+            </div>
+            <div class="row row3">
+                <div class="column column31" tabindex="0" id="cl7"></div>
+                <div class="column column32" tabindex="0" id="cl8"></div>
+                <div class="column column33" tabindex="0" id="cl9"></div>
+            </div>
+            <div class="resetdiv">
+                <button class="restart" id="restart">Restart</button>
+            </div>
+        </div>
     </div>
-    <template id="block">
-        <div class="block">
-            <transition v-on:enter="enter" v-bind:css="false">
-                <span v-show="figure > -1">{{ fig }}</span>
-            </transition>
-        </div>
-    </template>
-    <template id="win">
-        <div class="win">
-            <h2>Win</h2>
-            <button @click="clickHandler">Play again</button>
-        </div>
-    </template>
-    <!-- partial -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
-    <script src="./script.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>
