@@ -129,7 +129,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                 <button type="submit" class="sign-btn">Sign In</button>
             </form>
             <?php
-            if(isset($_SESSION['username'])){
+	    if(isset($_SESSION['username'])){
                 //user is logged in no need to check.
                 if(isset($_SESSION['username'])){
                     $username = $_SESSION['username'];
@@ -158,15 +158,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                             display: none;
                         }
                     </style>";
-                }elseif(isset($_POST['logout'])){
-                    session_start();
-                    session_abort();
-                    session_destroy();
-                    header("Location: index.php");
-                    exit;
                 }
+            }elseif(isset($_POST['logout'])){
+                // Unset all of the session variables
+                session_destroy();
+                header("Location: index.php");
+                exit;
             }
-            ?>
+	    ?>
         </div>
     </div>
     <script>
